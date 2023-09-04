@@ -1,0 +1,182 @@
+* {
+    font-family: 'Lato', sans-serif;
+    /* margin: 0; */
+}
+
+:root {
+    --primary-color: #790d79;
+    --accent-color: #6C757D;
+    --neutral-light: #F8F9FA;
+    --neutral-dark: #343A40;
+    --error-color: #FF0000;
+    --success-color: #28A745;
+}
+
+body {
+    background-color: lavender;
+    max-width: 1400px;
+    margin: 0 auto;
+
+}
+
+#sidebar { 
+    display: flex;
+    flex-direction: column;
+    float:right;
+    width:30%;
+    padding:1rem;
+    background: var(--neutral-light); 
+    height:100%;
+    border-radius: 10px;
+    /* color: var(--primary-color); */
+
+}
+
+
+#sidebar > h2 {
+    /* align-items: center; */
+    justify-content: center;
+    display: flex;
+}
+
+#sidebar > p {
+    color: var(--primary-color);
+}
+
+#sidebar > ul > li > a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+#content { 
+    float:left;
+    width:60%;
+    padding:0 0 0 30px; 
+}
+
+#posts {
+    /* background-color: firebrick; */
+}
+
+#single-post {
+    gap: 2rem;
+    padding: 1rem;
+    border-radius: 10px;
+    /* background-color: royalblue; */
+}
+
+#single-post:nth-child(even) {
+    background-color: var(--neutral-light); /* Background color for even rows */
+}
+
+#single-post > h2 > a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+#single-post > p {
+    font-size: 18px;
+}
+
+#single-post > p.date {
+    font-style: italic;
+    font-size: 14px;
+}
+
+#single-post > p.tags {
+    font-size: 20px;
+}
+
+#single-post > p.tags > a {
+    text-decoration: none;
+    color: var(--primary-color);
+
+}
+
+pre {
+    background-color: grey;
+    color: white;
+    padding: 0.2rem;
+    border-radius: 5px;
+}
+code {
+    background-color: gray;
+    color: white;
+    padding: 0.2rem;
+    border-radius: 5px;
+}
+
+blockquote {
+    border-left: 5px solid lightgray;
+    padding-left: 0.5rem;
+}
+
+/* Apply styling to the entire table */
+table {
+    width: 100%; /* Make the table fill its container */
+    border-collapse: collapse; /* Merge table borders */
+    font-family: Arial, sans-serif; /* Choose a font */
+}
+
+/* Style table headers */
+thead {
+    background-color: #f2f2f2; /* Header background color */
+    text-align: left; /* Text alignment */
+    padding: 10px; /* Padding around header content */
+    border-bottom: 2px solid #ddd; /* Bottom border */
+}
+
+/* Style table data cells */
+tbody {
+    padding: 8px; /* Padding around cell content */
+    text-align: left; /* Text alignment */
+    border-bottom: 1px solid #ddd; /* Bottom border */
+}
+
+/* Style even rows */
+tr:nth-child(even) {
+    background-color: #f5f5f5; /* Background color for even rows */
+}
+
+/* Style odd rows */
+/* tr:nth-child(odd) {
+    background-color: #ffffff;
+} */
+
+/* Add hover effect to table rows */
+tr:hover {
+    background-color: #f5f5f5; /* Background color on hover */
+}
+
+/* tr:nth-child(even):hover {
+    background-color: #dddddd;
+} */
+
+.plotly-graph {
+    /* background-color: red; */
+}
+
+#sidebar > #tags {
+    line-height: 2.5rem;
+
+}
+
+#sidebar > #tags > a {
+    text-decoration: none;
+    text-decoration: none;
+    background-color: purple;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+#sidebar > .hn-articles > ul > li > a {
+    text-decoration: none;
+    color: var(--primary-color);
+
+}
+
+#sidebar > .hn-articles > ul > li > p {
+    margin-top: 0;
+}
+

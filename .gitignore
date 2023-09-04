@@ -1,0 +1,19 @@
+# Ignore database files
+db.sqlite3
+
+# Ignore environment-specific settings
+.env
+
+# Ignore Python virtual environment directories
+venv/
+env/
+
+# Ignore compiled Python files
+__pycache__/
+
+# Ignore log files
+*.log
+
+# Ignore media and static files (only if managed externally, not recommended)
+/media/
+/static/

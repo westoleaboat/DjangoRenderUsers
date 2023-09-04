@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+{% if form.errors %}
+ <p>Your username and password didn't match. Please try again.</p>
+ {% endif %}
+
+
+ {% if user.is_authenticated %}
+    you are already logged in
+
+{% else %}
+
+ <form method="post" action="{% url 'users:login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+   
+    <button name="submit">Log in</button>
+    <input type="hidden" name="next"
+    value="{% url 'blog:post_list' %}" />
+</form>
+{% endif %}
+ 
+{% endblock content %}
