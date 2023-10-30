@@ -1,0 +1,31 @@
+<!-- header.html -->
+<header>
+    <a href="{% url 'blog:post_list' %}"><h1>PyNoteBook</h1></a>
+
+    <div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <!-- Add more navigation items as needed -->
+            </ul>
+        </nav>
+
+        <div id="user">
+            {% if user.is_authenticated %}
+                <p>Hello, {{ user.username }}.
+                    <a href="{% url 'users:logout' %}">Log out</a>
+                </p>
+            {% else %}
+                <p>
+                    <a href="{% url 'users:login' %}">Log in</a>
+                    <a href="{% url 'users:register' %}">Register</a>
+                </p>
+            {% endif %} 
+        </div>
+    </div>
+    
+   
+
+</header>

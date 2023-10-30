@@ -1,0 +1,32 @@
+{% load static %}
+{% load blog_tags %}
+
+<div id="sidebar">
+    <h2>Where great ideas happen</h2>
+
+    <div id='tags'>
+        {% for tag in tags %}
+        <a href="{% url "blog:post_list_by_tag" tag.slug %}">{{ tag.name }}</a>
+        {% if not forloop.last %} {% endif %}
+        {% endfor %}
+    </div>
+    
+    <h3>Latest Posts</h3>
+    {% show_latest_posts 3 %}
+    <div class="plotly-graph">
+        {% autoescape off %}
+        {{ plot_html|safe }}
+        {% endautoescape %}
+    </div>
+    <div class="hn-articles">
+        <h3>Latest Hacker News Articles</h3>
+        <ul>
+            {% for item in submission_dicts %}
+            <li>
+                <a href="{{ item.hn_link }}" target="_blank">{{ item.title }}</a>
+                <p>Comments: {{ item.comments }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

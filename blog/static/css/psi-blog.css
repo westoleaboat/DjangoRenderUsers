@@ -1,0 +1,165 @@
+* {
+    font-family: 'Lato', sans-serif;
+
+}
+
+/* Add this to your CSS file */
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 3rem;
+}
+
+.post-grid > .single-post > h2 > a {
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+    /* position: relative; */
+}
+
+#post-image {
+    /* flex: 1; */
+    /* z-index: 1; */
+    position: absolute;
+    /* opacity: 0.8;  */
+    /* border: 2px solid red; */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
+    filter: brightness(80%);
+
+    
+}
+
+.post-grid > .single-post > #post-image > img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.post-grid > .single-post > #short-text > h2 > a {
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+}
+
+.post-grid > .single-post > #short-text > p.tags > a{
+    text-decoration: none;
+    background-color: purple;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 5px;
+    /* border: 1px solid green; */
+    /* bottom: 0; */
+}
+
+#post-short-content {
+    flex: 2;
+    position: inherit;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#post-short-content > div > h2 > a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 40px;
+}
+
+#short-text {
+    background-color: rgba(0, 0, 0, 0.7);;
+    position: relative;
+
+    flex: 2;
+    /* position: inherit; */
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#short-text > div {
+    color: white;
+}
+
+#post-short-content > #short-text > p.tags > a {
+    text-decoration: none;
+    background-color: purple;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid green;
+}
+
+
+.single-post {
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.8); /* rgba(RED, GREEN, BLUE, ALPHA) */
+    min-height: 220px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-image: url('../img/placeholder1.png');
+
+
+}   
+
+#single-post > p.tags > a {
+    text-decoration: none;
+    color: var(--primary-color);
+
+}
+
+.single-post.large {
+    grid-row: span 2;
+    grid-column: span 2;
+    /* background-image: url('https://picsum.photos/900/500'); */
+}
+
+.single-post.large > #post-image {
+       /* flex: 1; */
+    /* z-index: 1; */
+    position: absolute;
+    /* opacity: 0.8;  */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
+    /* filter: brightness(40%); */
+}
+
+.single-post > #post-image {
+    filter: brightness(40%);
+
+}
+.container {
+    margin-inline: auto;
+    max-width: 1400px;
+    width: 90%;
+}
+
+/* Header styles */
+header {
+    background-color: #333; /* Background color for the header */
+    color: #fff; /* Text color in the header */
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a box shadow for the header */
+}
+
+header > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px; /* Spacing between navigation items */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff; /* Link color in the header */
+}

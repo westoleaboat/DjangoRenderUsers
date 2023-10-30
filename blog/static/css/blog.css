@@ -19,8 +19,55 @@ body {
 
 }
 
+
+/* Header styles */
+header {
+    background-color: #333; /* Background color for the header */
+    color: #fff; /* Text color in the header */
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a box shadow for the header */
+}
+
+header > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px; /* Spacing between navigation items */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff; /* Link color in the header */
+}
+
+#account {
+    display: flex;
+    justify-content: end;
+    gap: 3rem;
+    align-items: center;
+}
+
+#newp {
+    display: flex;
+    justify-content: end;
+    text-decoration: none;
+    padding: 0.5rem 0rem;
+    /* padding: 2rem; */
+}
+
 #sidebar { 
     display: flex;
+    margin-top: 2rem;
     flex-direction: column;
     float:right;
     width:30%;
@@ -51,22 +98,33 @@ body {
 #content { 
     float:left;
     width:60%;
-    padding:0 0 0 30px; 
+    /* padding:0 0 0 30px;  */
+}
+
+#detail {
+
 }
 
 #posts {
     /* background-color: firebrick; */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 #single-post {
-    gap: 2rem;
-    padding: 1rem;
+    /* gap: 2rem; */
+    /* padding: 1rem; */
     border-radius: 10px;
-    /* background-color: royalblue; */
+    display: flex;
+    position: relative;
+    color: #fff; 
+    overflow: hidden;
+
 }
 
 #single-post:nth-child(even) {
-    background-color: var(--neutral-light); /* Background color for even rows */
+    /* background-color: var(--neutral-light); Background color for even rows */
 }
 
 #single-post > h2 > a {
@@ -84,6 +142,7 @@ body {
 }
 
 #single-post > p.tags {
+    /* text-decoration: none; */
     font-size: 20px;
 }
 
@@ -92,6 +151,50 @@ body {
     color: var(--primary-color);
 
 }
+
+#post-image {
+    /* flex: 1; */
+    /* z-index: 1; */
+    position: absolute;
+    /* opacity: 0.8;  */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
+    filter: brightness(40%);
+
+    
+}
+
+#post-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+#post-short-content {
+    flex: 2;
+    position: inherit;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#post-short-content > div > h2 > a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 40px;
+}
+
+#post-short-content > #short-text {
+    background-color: rgba(0, 0, 0, 0.8);;
+}
+
+#post-short-content > #short-text > p.tags > a {
+    text-decoration: none;
+    background-color: purple;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
 
 pre {
     background-color: grey;

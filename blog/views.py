@@ -34,8 +34,11 @@ class PostListView(ListView):
 
 @login_required
 def post_list(request, tag_slug=None):
-    # object_list = Post.published.all()
-    object_list = Post.objects.filter(author=request.user).order_by('-created')
+    # Show all posts to any logged user
+    object_list = Post.published.all()
+
+    # Show only user's post to current user
+    # object_list = Post.objects.filter(author=request.user).order_by('-created')
 
     tag = None # optional param that has a None def val.
 
@@ -49,8 +52,10 @@ def post_list(request, tag_slug=None):
 
     # all_tags = Post.objects.values_list('slug', flat=True)
     all_tags = Tag.objects.all()
+    # all_tags = Tag.objects.filter(author=request.user)
+    # user_tags = Post.objects.filter(author=request.user).values_list('tags__name', flat=True).distinct()
 
-    paginator = Paginator(object_list, 6) # 6 posts in each page
+    paginator = Paginator(object_list, 6) # 8 posts in each page
     page = request.GET.get('page')
 
     # Generate the Plotly figure using the loaded data
@@ -70,7 +75,25 @@ def post_list(request, tag_slug=None):
         # If page is out of range deliver last page of results
         posts = paginator.page(paginator.num_pages)
         # posts = Post.published.all()
-    return render(request, 'blog/post/list.html', {'page':page, 'posts': posts, 'tag': tag, 'plot_html': plot_html, 'submission_dicts': submission_dicts, 'tags': all_tags })
+
+    # Get the image URLs for each post
+    post_image_urls = 'https://picsum.photos/900/500'
+
+    context = {
+        'page': page,
+        'posts': posts,
+        'tag': tag,
+        'plot_html': plot_html,
+        'submission_dicts': submission_dicts,
+        'tags': all_tags,
+        'post_image_urls': post_image_urls,  # Add this line to pass image URLs
+    }
+        
+    # RETURN OPTIONS ############
+    # return render(request, 'blog/post/list.html', {'page':page, 'posts': posts, 'tag': tag, 'plot_html': plot_html, 'submission_dicts': submission_dicts, 'tags': all_tags })
+    return render(request, 'blog/post/list2.html', context)
+    # return render(request, 'blog/post/psi-blog.html', context)
+    # return render(request, 'blog/post/methaphysics-blog.html', context)
 
 @login_required
 def post_detail(request, year, month, day, post):

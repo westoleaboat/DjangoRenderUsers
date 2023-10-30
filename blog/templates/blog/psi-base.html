@@ -5,23 +5,22 @@
 <html>
     <head>
     <title>{% block title %}{% endblock %}</title>
-    <link href="{% static "css/blog.css" %}" rel="stylesheet">
+    <link href="{% static "css/psi-blog.css" %}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-    {% include 'blog/header.html' %} <!-- Include the header here -->
+    <!--a href="{% url 'blog:post_list' %}"><h1>PyNoteBook</h1></a-->
+    {% include 'blog/header.html' %}
+
 
     <div id="content">
         {% block content %}
         {% endblock %}
     </div>
 
-    {% include 'blog/sidebar.html' %} <!-- Include the header here -->
-
-    
-
+   
 </body>
 </html>
 

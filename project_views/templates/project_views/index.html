@@ -1,0 +1,16 @@
+{% extends "project_views/base.html" %}
+
+
+
+{% block content %}
+
+<h1>Welcome Pynotebook</h1>
+
+<p>This is the project-wide index page. You can find the following sections:</p>
+
+<ul>
+    <li><a href="{% url 'blog:post_list' %}">Blog</a></li>
+    <!-- Add more links here for other sections of your project -->
+</ul>
+
+{% endblock content %}

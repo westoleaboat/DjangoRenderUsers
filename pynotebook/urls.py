@@ -16,9 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from project_views.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # index
+    path('', index, name='index'),  
+    # user auth
+    # path('accounts/', include('django_registration.backends.activation.urls')),
+    # # user auth 2
+    # path('accounts/', include('django.contrib.auth.urls')),
+    # # user auth 2
+    # path('accounts/', include('users.urls')),
     # blog application URLs
     path('blog/', include('blog.urls', namespace='blog')),
     # markdown url

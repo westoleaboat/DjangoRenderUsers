@@ -12,6 +12,12 @@ from django.utils.text import slugify
 # from django.contrib.auth.models import User
 
 # Create your models here.
+
+
+# def upload_to(instance, filename):
+#     return f'media/posts/{instance.slug}/{filename}'
+
+
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super(PublishedManager, self).get_queryset().filter(status='published')
@@ -22,6 +28,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=250, unique_for_date='publish')
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
     # body = models.TextField()
+    image_url = models.URLField(default='https://picsum.photos/900/500')
     body = MarkdownxField()
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)

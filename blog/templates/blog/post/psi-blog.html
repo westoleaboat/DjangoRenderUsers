@@ -1,0 +1,63 @@
+{% extends "blog/psi-base.html" %}
+{% load static %}
+{% load blog_tags %}
+
+{% block title %}All Posts{% endblock %}
+
+{% block content %}
+
+
+<div class='container'>
+    {% if tag %}
+        <h2>Posts tagged with "{{ tag.name }}"</h2>
+    {% endif %}
+
+
+
+    <div id="posts" class="post-grid">
+        {% for post in posts %}
+            <div class="single-post {% if forloop.first %}large{% endif %}">
+
+                <!--div id="post-image">
+                    <img src="{% static 'img/placeholder1.png' %}" alt="Featured Image">
+                </div-->
+
+               
+                <div id='short-text'>    
+                    <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+                    
+
+                    {% if forloop.first %}
+                    <div>
+                        {{ post.body|markdownx|truncatewords_html:30 }}
+                    </div>
+                    {% endif %}
+
+
+                    {% if post.tags.all %}
+
+                        <p class="tags"> 
+                        {% for tag in post.tags.all %}
+                            <a href="{% url "blog:post_list_by_tag" tag.slug %}">{{ tag.name }}</a>
+                            {% if not forloop.last %} {% endif %}
+                        {% endfor %}
+                        </p>
+                    {% endif %}
+                    
+                    <!-- p class="date">Published {{ post.publish }} by {{ post.author }}</p>
+
+                    {{ post.body|markdownx|truncatewords_html:30 }} -->
+                </div>
+                
+            </div>
+        {% endfor %}
+    </div>
+    
+    
+    
+    
+
+   
+    {% include "pagination.html" with page=posts %}
+</div>
+{% endblock %}
